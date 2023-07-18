@@ -7,7 +7,7 @@
 
 <script>
 import TodayLunch from "@/components/TodayLunch.vue";
-import TodayHeader from "./components/TodayHeader.vue";
+import TodayHeader from "@/components/TodayHeader.vue";
 
 export default {
   name: "App",
