@@ -208,7 +208,7 @@ export default {
 
 .container {
     width: 100vw;
-    height: 50vw;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     position: relative;
