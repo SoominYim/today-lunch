@@ -11,3 +11,11 @@ module.exports = defineConfig({
     //     },
     // },
 });
+module.exports = {
+    pwa: {
+        name: "today-lunch",
+        workboxOptions: {
+            exclude: [/\.map$/, /manifest\.json$/, "index.html"], // 캐싱(하드에 저장하지 말라달라고)목록에서 제외 해달라는것임
+        },
+    },
+};
