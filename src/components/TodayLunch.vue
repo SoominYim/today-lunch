@@ -455,7 +455,7 @@ export default {
         }
 
         button {
-            opacity: 1;
+            opacity: 0;
             position: absolute;
             top: 55.5vw;
             left: 51.3vw;
