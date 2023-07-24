@@ -118,7 +118,7 @@
                             <polyline fill="none" class="stroke" points=" 800.8 672.8 842.5 601 883.6 672.8 " />
                             <ellipse fill="#222326" class="stroke" cx="842.2" cy="601" rx="10" ry="10" />
                             <path fill="#55d679" d="M909.3 740.7H775.1c-5.5 0-10-4.5-10-10v-47.9c0-5.5 4.5-10 10-10h134.2c5.5 0 10 4.5 10 10v47.9C919.3 736.2 914.8 740.7 909.3 740.7z" />
-                            <text transform="matrix(1.0027 0 0 1 789.6294 721.7501)" fill="#222326" font-family="Fredoka One" font-size="38">&nbsp;눌 러</text>
+                            <text transform="matrix(1.0027 0 0 1 789.6294 721.7501)" fill="#222326" font-family="Fredoka One" font-size="38">&nbsp;&nbsp;눌 러</text>
                             <path fill="none" class="stroke" d="M909.3 740.7H775.1c-5.5 0-10-4.5-10-10v-47.9c0-5.5 4.5-10 10-10h134.2c5.5 0 10 4.5 10 10v47.9C919.3 736.2 914.8 740.7 909.3 740.7z" />
                         </g>
                     </g>

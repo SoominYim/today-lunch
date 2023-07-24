@@ -200,6 +200,7 @@ export default {
 <style lang="scss" scoped>
 @charset "UTF-8";
 @import "@/css/root.scss";
+@import "@/css/reset.css";
 
 * {
     overflow: hidden;
@@ -213,6 +214,7 @@ export default {
         flex-direction: column;
         top: 5vw;
         left: 0;
+        font-family: omyu_pretty;
     }
 
     label,
@@ -244,6 +246,7 @@ export default {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
         font-size: 1.5rem;
         cursor: pointer;
+        font-family: omyu_pretty;
 
         &+div {
             margin: 0 auto;
@@ -328,8 +331,10 @@ export default {
         background-color: var(--color-background-secondary);
         border: 1px solid var(--color-border);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        padding-top: 3vw;
         cursor: pointer;
+        font-family: omyu_pretty;
 
         &+div {
             margin: 0 auto;
@@ -365,15 +370,19 @@ export default {
             border-radius: 8px;
             border: 2px solid #3B9554;
             background-color: #fff;
+            line-height: 3.4vw;
+            font-size: 2.9vw;
         }
 
         button {
             opacity: 0;
             position: absolute;
-            top: 19.6vw;
-            left: 23.3vw;
-            width: 5.5vw;
-            height: 2.5vw;
+
+            top: 47.6vw;
+            left: 51.3vw;
+            width: 12.5vw;
+            height: 6.5vw;
+
             cursor: pointer;
         }
     }
@@ -410,12 +419,14 @@ export default {
         width: 10vw;
         height: 10vw;
         border-radius: 50%;
-        padding-top: 3px;
         background-color: var(--color-background-secondary);
         border: 1px solid var(--color-border);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
         font-size: 5px;
+        padding-top: 3vw;
         cursor: pointer;
+
+        font-family: omyu_pretty;
 
         &+div {
             margin: 0 auto;
@@ -428,6 +439,7 @@ export default {
             bottom: 0;
             right: 0;
             border-radius: 50%;
+
         }
 
         &:hover {
@@ -452,6 +464,8 @@ export default {
             border-radius: 5px;
             border: 2px solid #3B9554;
             background-color: #fff;
+            line-height: 4vw;
+            font-size: 2vw;
         }
 
         button {
@@ -465,6 +479,22 @@ export default {
         }
     }
 }
+
+.result_wrap {
+    animation: fadeIn 0.5s 1.8s ease-in forwards;
+    opacity: 0;
+
+    span {
+        font-family: omyu_pretty
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
 
 .container {
     width: 100vw;
