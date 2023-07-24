@@ -8,7 +8,7 @@
         </a>
         <a href="https://www.facebook.com/profile.php?id=100002681110982" title="facebook" class="sns" target="blank"> <i
                 class="fa-brands fa-facebook"></i></a>
-        <span>© 2022. S-o-o-Min . All rights reserved.</span>
+        <span>© 2023. S-o-o-Min . All rights reserved.</span>
     </div>
 </template>
 
@@ -20,6 +20,8 @@ export default {
 
 <style lang="scss" scoped>
 div {
+    height: 200px;
+
     .sns {
         color: #fff;
         font-size: 40px;
@@ -35,7 +37,7 @@ div {
     span {
         font-size: 14px;
         display: block;
-        margin-top: 30px;
+        margin-top: 20px;
         color: #fff;
     }
 }
