@@ -453,7 +453,6 @@ export default {
     .radio-box {
         width: 20vw;
         height: 10vw;
-        top: 20px;
         position: relative;
         text-align: center;
     }
