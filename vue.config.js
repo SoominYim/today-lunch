@@ -1,10 +1,10 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   transpileDependencies: true,
-  // publicPath: "/today-lunch/",
-  // devServer: {
-  //   publicPath: "/today-lunch/",
-  // },
+  publicPath: "/today-lunch/",
+  devServer: {
+    publicPath: "/today-lunch/",
+  },
 
   // resolve: {
   //     alias: {
