@@ -146,7 +146,7 @@ export default {
 		height: 100vh;
 		overflow: hidden;
 		position: absolute;
-		top: 0;
+		top: 200px;
 		left: 0;
 	}
 

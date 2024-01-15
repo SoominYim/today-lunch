@@ -272,7 +272,7 @@ export default {
         width: 100%;
         height: 100%;
         position: absolute;
-        top: 0;
+        top: 200px;
         left: 0;
 
         span {
@@ -448,6 +448,14 @@ export default {
             color: var(--color-text-secondary);
         }
 
+    }
+
+    .radio-box {
+        width: 20vw;
+        height: 10vw;
+        top: 20px;
+        position: relative;
+        text-align: center;
     }
 
     .result_wrap {
