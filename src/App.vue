@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import TodayLunch from "@/components/TodayLunch.vue";
+import TodayLunch from "@/views/TodayLunch.vue";
 import TodayHeader from "@/components/TodayHeader.vue";
 import TodayFooter from "@/components/TodayFooter.vue";
 import TodayAnime from "@/components/TodayAnime.vue"
@@ -31,7 +31,7 @@ export default {
 @import "@/css/root.scss";
 
 #app {
-  overflow: hidden;
+  overflow: visible;
   width: 100vw;
   height: 100vh;
   display: flex;

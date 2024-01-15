@@ -1,7 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import store from "@/store/randomChoice";
+import vuetify from "./plugins/vuetify";
+import { loadFonts } from "./plugins/webfontloader";
+import router from "./router"; // 경로 수정
 
-const app = createApp(App);
+loadFonts();
 
-app.use(store).mount("#app");
+createApp(App).use(vuetify).use(router).mount("#app");

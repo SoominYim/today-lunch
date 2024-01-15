@@ -138,7 +138,11 @@ export default {
         }
 
         // foods country 별로 data()바인딩
-        if (this.koreanFoods === [] || this.chineseFoods === [] || this.japaneseFoods === [] || this.westernFoods === [] || this.asianFoods === []) {
+        if (this.koreanFoods.length === 0 ||
+            this.chineseFoods.length === 0 ||
+            this.japaneseFoods.length === 0 ||
+            this.westernFoods.length === 0 ||
+            this.asianFoods.length === 0) {
             this.koreanFoods = koreanFoods;
             this.chineseFoods = chineseFoods;
             this.japaneseFoods = japaneseFoods;
@@ -422,7 +426,7 @@ export default {
         background-color: var(--color-background-secondary);
         border: 1px solid var(--color-border);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
-        font-size: 5px;
+        font-size: 12px;
         padding-top: 3vw;
         cursor: pointer;
 
