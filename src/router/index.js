@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import TodayLunch from "@/views/TodayLunch.vue";
+import TodayMain from "@/views/TodayMain.vue";
 import TodayCoffee from "@/views/TodayCoffee";
 
 const router = createRouter({
@@ -7,13 +7,21 @@ const router = createRouter({
   routes: [
     {
       path: "/today-lunch",
-      component: TodayLunch,
-      name: TodayLunch,
+      component: TodayMain,
+      name: TodayMain,
+      meta: {
+        enterActiveClass: "animate__animated animate__fadeIn",
+        leaveToClass: "animate__animated animate__fadeOut",
+      },
     },
     {
       path: "/today-lunch/coffee",
       component: TodayCoffee,
       name: TodayCoffee,
+      meta: {
+        enterActiveClass: "animate__animated animate__fadeIn",
+        leaveActiveClass: "animate__animated animate__fadeOut",
+      },
     },
   ],
 });

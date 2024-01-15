@@ -1,8 +1,15 @@
 <template>
   <div class="main_con">
     <today-header></today-header>
-    <today-anime></today-anime>
-    <today-lunch></today-lunch>
+    <div class="content">
+      <router-view v-slot="{ Component, route }">
+        <transition name="fade" mode="out-in" :enter-to-class="route.meta.enterToClass"
+          :enter-active-class="route.meta.enterActiveClass" :leave-to-class="route.meta.leaveToClass"
+          :leave-active-class="route.meta.leaveActiveClass">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+    </div>
     <div class="footer">
       <today-footer></today-footer>
     </div>
@@ -10,18 +17,14 @@
 </template>
 
 <script>
-import TodayLunch from "@/views/TodayLunch.vue";
 import TodayHeader from "@/components/TodayHeader.vue";
 import TodayFooter from "@/components/TodayFooter.vue";
-import TodayAnime from "@/components/TodayAnime.vue"
 
 export default {
   name: "App",
   components: {
-    TodayLunch,
     TodayHeader,
     TodayFooter,
-    TodayAnime
   },
 };
 </script>
@@ -31,7 +34,7 @@ export default {
 @import "@/css/root.scss";
 
 #app {
-  overflow: visible;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -50,5 +53,15 @@ export default {
   padding: 30px;
   bottom: 0;
   left: 0;
+}
+
+.animate__animated.animate__zoomIn,
+.animate__animated.animate__zoomOut {
+  --animate-duration: 1.5s;
+}
+
+.animate__animated.animate__fadeIn,
+.animate__animated.animate__fadeOut {
+  --animate-duration: 2s;
 }
 </style>

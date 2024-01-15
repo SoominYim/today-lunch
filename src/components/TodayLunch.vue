@@ -38,10 +38,8 @@
 </template>
 <script>
 import randomChoice_store from "@/store/randomChoice";
-import TodayAnime from "@/components/TodayAnime.vue";
 export default {
     components: {
-        TodayAnime,
     },
 
     data() {
