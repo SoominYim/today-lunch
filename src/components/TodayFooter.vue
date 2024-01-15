@@ -7,8 +7,11 @@
             <i class="fa-brands fa-instagram"></i>
         </a>
         <a href="https://www.facebook.com/profile.php?id=100002681110982" title="facebook" class="sns" target="blank"> <i
-                class="fa-brands fa-facebook"></i></a>
-        <span>© 2023. S-o-o-Min . All rights reserved.</span>
+                class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://s-o-o-min.tistory.com/" title="tistory" class="sns" target="blank"> <i
+                class="fa-solid fa-t"></i></a>
+        <span>© 2024. S-o-o-Min . All rights reserved.</span>
     </div>
 </template>
 
