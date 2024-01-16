@@ -3,7 +3,9 @@ module.exports = defineConfig({
   transpileDependencies: true,
   publicPath: "/today-lunch/",
   devServer: {
-    publicPath: "/today-lunch/",
+    client: {
+      overlay: false,
+    },
   },
 
   // resolve: {

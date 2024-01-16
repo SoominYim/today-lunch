@@ -1,38 +1,31 @@
 <template>
-    <div class="container">
-        <v-card color="grey-lighten-4" flat height="100px" rounded="0">
-            <v-toolbar extended extension-height="100">
-                <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-                <v-toolbar-title>Title</v-toolbar-title>
-
+    <v-app>
+        <div class="container">
+            <v-toolbar density="compact" border :elevation="8" theme="dark" with-background>
+                <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-toolbar-title></v-toolbar-title>
                 <v-spacer></v-spacer>
-
                 <v-btn icon>
-                    <v-icon>mdi-magnify</v-icon>
-                </v-btn>
-
-                <v-btn icon>
-                    <v-icon>mdi-heart</v-icon>
-                </v-btn>
-
-                <v-btn icon>
-                    <v-icon>mdi-dots-vertical</v-icon>
+                    <v-icon>mdi-reply</v-icon>
                 </v-btn>
             </v-toolbar>
-        </v-card>
-    </div>
+        </div>
+        <v-navigation-drawer v-model="drawer">
+        </v-navigation-drawer>
+    </v-app>
 </template>
 <script>
 export default {
     data() {
         return {
+            drawer: false,
         }
     }
 }
 </script>
 <style lang="scss" scoped>
 .container {
+    background-color: none;
     height: 100px;
     width: 100vw;
     position: relative;

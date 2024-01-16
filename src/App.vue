@@ -2,12 +2,7 @@
   <div class="main_con">
     <today-header></today-header>
     <div class="content">
-      <router-view v-slot="{ Component, route }">
-        <transition name="fade" mode="out-in" :enter-to-class="route.meta.enterToClass"
-          :enter-active-class="route.meta.enterActiveClass" :leave-to-class="route.meta.leaveToClass"
-          :leave-active-class="route.meta.leaveActiveClass">
-          <component :is="Component"></component>
-        </transition>
+      <router-view>
       </router-view>
     </div>
     <div class="footer">
