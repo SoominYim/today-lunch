@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app style="background: none;">
         <div class="container">
             <v-toolbar density="compact" border :elevation="8" theme="dark" with-background>
                 <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
