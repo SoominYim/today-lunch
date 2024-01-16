@@ -79,18 +79,28 @@ export default {
         // 선택된 country의 랜덤 음식 뽑아버리기
         submitSelect() {
             if (this.menuActive === 0) {
-                if (this.selectedCountry === "all") {
-                    this.selectedFood = this.allChoiceFood.food;
-                } else if (this.selectedCountry === "korean") {
-                    this.selectedFood = this.koreanChoiceFood.food;
-                } else if (this.selectedCountry === "chinese") {
-                    this.selectedFood = this.chineseChoiceFood.food;
-                } else if (this.selectedCountry === "japanese") {
-                    this.selectedFood = this.japaneseChoiceFood.food;
-                } else if (this.selectedCountry === "western") {
-                    this.selectedFood = this.westernChoiceFood.food;
-                } else if (this.selectedCountry === "asian") {
-                    this.selectedFood = this.asianChoiceFood.food;
+                switch (this.selectedCountry) {
+                    case "all":
+                        this.selectedFood = this.allChoiceFood.food;
+                        break;
+                    case "korean":
+                        this.selectedFood = this.koreanChoiceFood.food;
+                        break;
+                    case "chinese":
+                        this.selectedFood = this.chineseChoiceFood.food;
+                        break;
+                    case "japanese":
+                        this.selectedFood = this.japaneseChoiceFood.food;
+                        break;
+                    case "western":
+                        this.selectedFood = this.westernChoiceFood.food;
+                        break;
+                    case "asian":
+                        this.selectedFood = this.asianChoiceFood.food;
+                        break;
+                    default:
+                        // 기본값 설정 또는 오류 처리
+                        break;
                 }
             }
             // if (this.menuActive === 4) {
@@ -207,6 +217,15 @@ export default {
 * {
     overflow: hidden;
 }
+
+.result_wrap {
+
+    span {
+        color: #333;
+        font-weight: bold;
+    }
+}
+
 
 @media all and (min-width: 1024px) {
     .container {
