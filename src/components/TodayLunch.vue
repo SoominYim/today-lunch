@@ -43,31 +43,33 @@ export default {
     },
 
     data() {
+        const { allFood, randomSelectedFood, menu, selectedFood } = randomChoice_store.state;
+
         return {
             // 음식
-            foods: randomChoice_store.state.allFood.foods,
-            koreanFoods: randomChoice_store.state.allFood.koreanFoods,
-            chineseFoods: randomChoice_store.state.allFood.chineseFoods,
-            japaneseFoods: randomChoice_store.state.allFood.japaneseFoods,
-            westernFoods: randomChoice_store.state.allFood.westernFoods,
-            asianFoods: randomChoice_store.state.allFood.asianFoods,
+            foods: allFood.foods,
+            koreanFoods: allFood.koreanFoods,
+            chineseFoods: allFood.chineseFoods,
+            japaneseFoods: allFood.japaneseFoods,
+            westernFoods: allFood.westernFoods,
+            asianFoods: allFood.asianFoods,
 
             // 랜덤 선택된 음식
-            allChoiceFood: randomChoice_store.state.randomSelectedFood.allChoiceFood,
-            koreanChoiceFood: randomChoice_store.state.randomSelectedFood.koreanChoiceFood,
-            chineseChoiceFood: randomChoice_store.state.randomSelectedFood.chineseChoiceFood,
-            japaneseChoiceFood: randomChoice_store.state.randomSelectedFood.japaneseChoiceFood,
-            westernChoiceFood: randomChoice_store.state.randomSelectedFood.westernChoiceFood,
-            asianChoiceFood: randomChoice_store.state.randomSelectedFood.asianChoiceFood,
+            allChoiceFood: randomSelectedFood.allChoiceFood,
+            koreanChoiceFood: randomSelectedFood.koreanChoiceFood,
+            chineseChoiceFood: randomSelectedFood.chineseChoiceFood,
+            japaneseChoiceFood: randomSelectedFood.japaneseChoiceFood,
+            westernChoiceFood: randomSelectedFood.westernChoiceFood,
+            asianChoiceFood: randomSelectedFood.asianChoiceFood,
 
             // 메뉴
             menuActive: 0,
-            menuIdx: randomChoice_store.state.menu.menuIdx,
-            groupedIndexes: randomChoice_store.state.menu.groupedIndexes,
+            menuIdx: menu.menuIdx,
+            groupedIndexes: menu.groupedIndexes,
 
             // 최종 뽑은 음식
-            selectedFood: randomChoice_store.state.selectedFood.selectedFood,
-            selectedCountry: randomChoice_store.state.selectedFood.selectedCountry,
+            selectedFood: selectedFood.selectedFood,
+            selectedCountry: selectedFood.selectedCountry,
             // 음식 종료 ---------------------------------------
         };
     },
@@ -132,31 +134,35 @@ export default {
             const country = food.country;
             const foodName = food.food;
 
-            if (country === "korean") {
-                koreanFoods.push(foodName);
-            } else if (country === "chinese") {
-                chineseFoods.push(foodName);
-            } else if (country === "japanese") {
-                japaneseFoods.push(foodName);
-            } else if (country === "western") {
-                westernFoods.push(foodName);
-            } else if (country === "asian") {
-                asianFoods.push(foodName);
+            switch (country) {
+                case "korean":
+                    koreanFoods.push(foodName);
+                    break;
+                case "chinese":
+                    chineseFoods.push(foodName);
+                    break;
+                case "japanese":
+                    japaneseFoods.push(foodName);
+                    break;
+                case "western":
+                    westernFoods.push(foodName);
+                    break;
+                case "asian":
+                    asianFoods.push(foodName);
+                    break;
+                default:
+                    break;
             }
         }
 
         // foods country 별로 data()바인딩
-        if (this.koreanFoods.length === 0 ||
-            this.chineseFoods.length === 0 ||
-            this.japaneseFoods.length === 0 ||
-            this.westernFoods.length === 0 ||
-            this.asianFoods.length === 0) {
-            this.koreanFoods = koreanFoods;
-            this.chineseFoods = chineseFoods;
-            this.japaneseFoods = japaneseFoods;
-            this.westernFoods = westernFoods;
-            this.asianFoods = asianFoods;
-        }
+        const countries = ["korean", "chinese", "japanese", "western", "asian"];
+
+        countries.forEach(country => {
+            if (this[`${country}Foods`].length === 0) {
+                this[`${country}Foods`] = eval(`${country}Foods`);
+            }
+        });
 
         // 랜덤 선택 메소드
         const getRandomFood = (foods) => {
@@ -166,33 +172,19 @@ export default {
                 food: randomFood.food,
             };
         };
-        // 전체 선택
-        const allChoiceFood = getRandomFood(foods);
+        function getChoiceFood(foods, country) {
+            return getRandomFood(foods.filter(food => food.country === country));
+        }
 
-        // 한식 선택
-        const koreanChoiceFood = getRandomFood(foods.filter((food) => food.country === "korean"));
-
-        // 중식 선택
-        const chineseChoiceFood = getRandomFood(foods.filter((food) => food.country === "chinese"));
-
-        // 일식 선택
-        const japaneseChoiceFood = getRandomFood(foods.filter((food) => food.country === "japanese"));
-
-        // 양식 선택
-        const westernChoiceFood = getRandomFood(foods.filter((food) => food.country === "western"));
-
-        // 동남아 선택
-        const asianChoiceFood = getRandomFood(foods.filter((food) => food.country === "asian"));
 
         // 랜덤 선택 음식 변수 data() 바인딩
-        if (this.allChoiceFood === "" || this.koreanChoiceFood == "" || this.chineseChoiceFood == "" || this.westernChoiceFood == "" || this.asianChoiceFood == "") {
-            this.allChoiceFood = allChoiceFood;
-            this.koreanChoiceFood = koreanChoiceFood;
-            this.chineseChoiceFood = chineseChoiceFood;
-            this.japaneseChoiceFood = japaneseChoiceFood;
-            this.westernChoiceFood = westernChoiceFood;
-            this.asianChoiceFood = asianChoiceFood;
-        }
+        const choices = ["all", "korean", "chinese", "japanese", "western", "asian"];
+
+        choices.forEach(choice => {
+            if (this[`${choice}ChoiceFood`] === "") {
+                this[`${choice}ChoiceFood`] = choice === "all" ? getRandomFood(foods) : getChoiceFood(foods, choice);
+            }
+        });
 
         // 새로운 나라 추가시 푸시 (store에 country 추가시 자동 푸시)
         const groupedIndexes = {};
