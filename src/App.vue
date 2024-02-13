@@ -2,8 +2,7 @@
   <div class="main_con">
     <today-header></today-header>
     <div class="content">
-      <router-view>
-      </router-view>
+      <router-view> </router-view>
     </div>
     <div class="footer">
       <today-footer></today-footer>
