@@ -1,4 +1,4 @@
-<template >
+<template>
   <div>
     <today-anime></today-anime>
     <today-lunch></today-lunch>
@@ -6,16 +6,14 @@
 </template>
 <script>
 import TodayLunch from "@/components/TodayLunch.vue";
-import TodayAnime from "@/components/TodayAnime.vue"
+import TodayAnime from "@/components/TodayAnime.vue";
 
 export default {
-  name: 'TodayMain',
+  name: "TodayMain",
   components: {
     TodayLunch,
-    TodayAnime
-  }
-}
+    TodayAnime,
+  },
+};
 </script>
-<style lang="">
-  
-</style>
+<style lang=""></style>

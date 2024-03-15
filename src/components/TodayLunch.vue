@@ -1,40 +1,39 @@
 <template lang="ko">
-     <div class="container">
-        <div class="form">
-            <!-- 전체 메뉴 -->
-            <div class="radio-box">
-                <input type="radio" class="radio-btn" name="country_menu" id="all" value="all" @click="radioChange($event)" checked="checked">
-                <label class="radio-label" for="all">전체</label>
-                <div class="spinner"></div>
-            </div>
-            <!-- 나라별 메뉴 -->
-            <div class="radio-box" v-for="(country_menu, i) in  Object.keys(groupedIndexes) " :key="i">
-                <input type="radio" class="radio-btn" name="country_menu" :id="country_menu" @click="radioChange($event)" :value="country_menu">
-                <label class="radio-label" :for="country_menu">
-                    <span>
-                    {{ (country_menu === "korean") ? "한식" : (country_menu === "chinese") ? "중식" : (country_menu === "japanese") ? "일식" : (country_menu === "western") ? "양식" : (country_menu === "asian") ? "아시안" : "없는 나라" }}
-                    </span>
-                </label>
-                
-                <div class="spinner"></div>
-            </div>
-            <span class="marker"></span>
-        <!-- 결과값 -->
-            <div class="result_wrap">
-                <span v-if="menuActive == 0">
-                {{ (selectedCountry === "all" ) ? "뭐든" : (selectedCountry === "korean") ? "한식" : (selectedCountry === "chinese") ? "중식" : (selectedCountry === "japanese") ? "일식" : (selectedCountry === "western") ? "양식" : (selectedCountry === "asian") ? "아시안" : "없는 나라" }} <br> 먹을거야?
-                </span>
-                <div class="result_box" >
-                    <span v-if="menuActive == 1">알았어.<br>{{ selectedFood }}<br>먹어</span>
-                    <span v-if="menuActive == 2">다른거 못 골라.<br>{{ selectedFood }}<br>먹어</span>
-                    <span v-if="menuActive == 3">못고른다고,<br>그냥<br>{{ selectedFood }}<br>먹어</span>
-                    <span v-if="menuActive == 4">이럴거면 이거 왜 했어<br>{{ selectedFood }}<br>먹어</span>
-                    <span v-else-if="menuActive > 4" >{{ selectedFood }}<br>먹어</span>
-                </div>
-                <button type="button" @click="submitSelect()"> 눌 러 </button>
-            </div>
-         </div>
+    <div class="container">
+    <div class="form">
+      <!-- 전체 메뉴 -->
+      <div class="radio-box">
+        <input type="radio" class="radio-btn" name="country_menu" id="all" value="all" @click="radioChange($event)" checked="checked">
+        <label class="radio-label" for="all">전체</label>
+        <div class="spinner"></div>
+      </div>
+      <!-- 나라별 메뉴 -->
+      <div class="radio-box" v-for="(country_menu, i) in  Object.keys(groupedIndexes) " :key="i">
+        <input type="radio" class="radio-btn" name="country_menu" :id="country_menu" @click="radioChange($event)" :value="country_menu">
+        <label class="radio-label" :for="country_menu">
+          <span>
+          {{ (country_menu === "korean") ? "한식" : (country_menu === "chinese") ? "중식" : (country_menu === "japanese") ? "일식" : (country_menu === "western") ? "양식" : (country_menu === "asian") ? "아시안" : "없는 나라" }}
+          </span>
+        </label>
+        <div class="spinner"></div>
+      </div>
+      <span class="marker"></span>
+      <!-- 결과값 -->
+      <div class="result_wrap">
+          <span v-if="menuActive == 0">
+          {{ (selectedCountry === "all" ) ? "뭐든" : (selectedCountry === "korean") ? "한식" : (selectedCountry === "chinese") ? "중식" : (selectedCountry === "japanese") ? "일식" : (selectedCountry === "western") ? "양식" : (selectedCountry === "asian") ? "아시안" : "없는 나라" }} <br> 먹을거야?
+          </span>
+          <div class="result_box" >
+            <span v-if="menuActive == 1">알았어.<br>{{ selectedFood }}<br>먹어</span>
+            <span v-if="menuActive == 2">다른거 못 골라.<br>{{ selectedFood }}<br>먹어</span>
+            <span v-if="menuActive == 3">못고른다고,<br>그냥<br>{{ selectedFood }}<br>먹어</span>
+            <span v-if="menuActive == 4">이럴거면 이거 왜 했어<br>{{ selectedFood }}<br>먹어</span>
+            <span v-else-if="menuActive > 4" >{{ selectedFood }}<br>먹어</span>
+          </div>
+          <button type="button" @click="submitSelect()"> 눌 러 </button>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import randomChoice_store from "@/store/randomChoice";
